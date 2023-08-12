@@ -1,0 +1,18 @@
+#  Membuat Docker Images
+docker build -t ubuntu-with-docker:v1 .
+
+# Melihat list docker images di local
+docker images
+
+# Mengubah nama image sesuai dengan repsitory di Docker Hub
+docker tag ubuntu-with-docker:v1 yogiflogic/ubuntu-with-docker:v1
+
+# Melihat list docker images di local
+docker images
+
+# login ke Docker hub registry
+# ketik di terminal "export PASSWORD_DOCKER_HUB=<password_Anda>"
+echo $PASSWORD_DOCKER_HUB | docker login -u yogiflogic --password-stdin
+
+# mengunggah image ke github container registry
+docker push yogiflogic/ubuntu-with-docker:v1
